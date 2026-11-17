@@ -71,8 +71,7 @@
                 "type": "string",
                 "description": "Batch identifier; omit to list all batches."
               }
-            },
-            "required": []
+            }
           }
         }
       ]
@@ -99,8 +98,7 @@
                 "type": "string",
                 "description": "Unit of the observation timestamps."
               }
-            },
-            "required": []
+            }
           }
         }
       ]
@@ -143,8 +141,24 @@
                 "type": "boolean",
                 "description": "Include per-dataset detail."
               }
-            },
-            "required": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "harbor-kernels",
+      "repository": "https://github.com/komal74784391-netizen/harbor-kernels",
+      "tools": [
+        {
+          "name": "harbor-contract",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "tensor": {
+                "type": "string"
+              }
+            }
           }
         }
       ]
