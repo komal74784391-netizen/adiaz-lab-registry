@@ -1,4 +1,158 @@
 {
   "registry_version": 3,
-  "projects": []
+  "projects": [
+    {
+      "slug": "qdelta-shift",
+      "repository": "https://github.com/komal74784391-netizen/qdelta-shift",
+      "tools": [
+        {
+          "name": "qdelta-monitor",
+          "description": "Run the streaming drift monitor over a score stream.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stream_id": {
+                "type": "string",
+                "description": "Identifier of the score stream."
+              },
+              "window": {
+                "type": "integer",
+                "description": "Window length in observations."
+              },
+              "threshold": {
+                "type": "number",
+                "description": "Alarm threshold for quantile drift."
+              }
+            },
+            "required": [
+              "stream_id",
+              "window"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "atlas-relabel",
+      "repository": "https://github.com/komal74784391-netizen/atlas-relabel",
+      "tools": [
+        {
+          "name": "atlas-annotate",
+          "description": "Launch an adaptive relabeling round on a batch.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "batch": {
+                "type": "string",
+                "description": "Batch identifier."
+              },
+              "budget": {
+                "type": "integer",
+                "description": "Annotation budget in labels."
+              },
+              "strategy": {
+                "type": "string",
+                "description": "Acquisition strategy name."
+              }
+            },
+            "required": [
+              "batch",
+              "budget"
+            ]
+          }
+        },
+        {
+          "name": "atlas-status",
+          "description": "Report progress of an ongoing relabeling batch.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "batch": {
+                "type": "string",
+                "description": "Batch identifier; omit to list all batches."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "pulse-embed",
+      "repository": "https://github.com/komal74784391-netizen/pulse-embed",
+      "tools": [
+        {
+          "name": "pulse-encode",
+          "description": "Encode an irregular time series into a pulse embedding.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "series_id": {
+                "type": "string",
+                "description": "Identifier of the irregular series."
+              },
+              "horizon": {
+                "type": "integer",
+                "description": "Output horizon in time steps."
+              },
+              "time_unit": {
+                "type": "string",
+                "description": "Unit of the observation timestamps."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tessera-bench",
+      "repository": "https://github.com/komal74784391-netizen/tessera-bench",
+      "tools": [
+        {
+          "name": "tessera-run",
+          "description": "Run a robustness suite end to end.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "suite": {
+                "type": "string",
+                "description": "Suite definition to execute."
+              },
+              "seed": {
+                "type": "integer",
+                "description": "Random seed for the run."
+              }
+            },
+            "required": [
+              "suite"
+            ]
+          }
+        },
+        {
+          "name": "tessera-report",
+          "description": "Render a report for a completed suite run.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "format": {
+                "type": "string",
+                "description": "Output format, e.g. json or html."
+              },
+              "verbose": {
+                "type": "boolean",
+                "description": "Include per-dataset detail."
+              }
+            }
+          }
+        },
+        {
+          "name": "tessera-list",
+          "description": "List the suites available in the harness.",
+          "parameters": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ]
+    }
+  ]
 }
