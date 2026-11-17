@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Adaptive Systems Lab interface registry",
+  "type": "object",
+  "required": [
+    "registry_version",
+    "projects"
+  ],
+  "properties": {
+    "registry_version": {
+      "type": "integer"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "slug",
+          "repository",
+          "tools"
+        ],
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "repository": {
+            "type": "string"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "parameters"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "properties",
+                    "required"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "properties": {
+                      "type": "object"
+                    },
+                    "required": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
